@@ -1,0 +1,27 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+:root{
+    /* this is how we can declare variables in css */
+    --background-color: white;
+    --text-color: black;
+}
+
+@media (prefers-color-scheme: dark){
+    :root {
+            /* this is how we can declare variables in css */
+            --background-color: black;
+            --text-color: white;
+        }
+}
+
+.container{
+    height: 100vh;
+    /* this is how we use those declared variables */
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
