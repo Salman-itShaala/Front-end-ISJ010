@@ -11,12 +11,12 @@
     --text-color: black;
 }
 
-@media (prefers-color-scheme: dark){
+@media (prefers-color-scheme : dark){
     :root {
             /* this is how we can declare variables in css */
             --background-color: black;
             --text-color: white;
-        }
+    }
 }
 
 .container{
