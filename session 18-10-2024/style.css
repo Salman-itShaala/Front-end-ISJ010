@@ -1,0 +1,58 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* hover */
+p:hover + ul{
+    display: block;
+}
+ul{
+    /* display: none; */
+}
+
+
+/* default color */
+a:link{
+
+}
+/* visited link */
+a:visited{
+    color: brown;
+}
+/* active state */
+a:active{
+    color: green;
+}
+
+
+ol li:first-child{
+    color: blue;
+}
+ol li:last-child{
+    color: red;
+}
+ol li:nth-child(2){
+    color: chocolate;
+}
+
+/* to select alternate  */
+ol li:nth-child(2n) {
+    color: green;
+}
+
+li::selection{
+    background-color: blueviolet;
+}
+ol::marker{
+    list-style: decimal;
+    color: blue;
+}
+
+p::before{
+    content: "😊";
+}
+p::after{
+    content: "🤣";
+}

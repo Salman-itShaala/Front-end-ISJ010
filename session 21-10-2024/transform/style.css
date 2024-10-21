@@ -1,0 +1,84 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.box{
+    height: 200px;
+    width: 200px;
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all;
+    transition-duration: 0.4s;
+    transition-timing-function: ease;
+    transition-delay: 0.5s;
+}
+
+.box:hover{
+    /* transform: scale(1.5) translate(20px) rotate(30deg); */
+     /* rotate: 45deg; */
+    /* scale: 1.05; */
+    /* background-color: aqua; */
+    /* border-radius: 50%; */
+}
+
+
+.box-2{
+    background-color: green;
+    height: 150px;
+    width: 150px;
+    /* animation: rotate-animation 10s linear 1s infinite; */
+    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+}
+
+@keyframes rotate-animation {
+    to{
+        rotate: 0deg;
+    }
+    from{
+        rotate: 360deg;
+    }
+}
+
+.parent{
+    background-color: black;
+    color: white;
+    /* overflow: hidden; */
+}
+.container{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    overflow: hidden;
+    animation: marquee-animation 20s linear infinite;
+}
+.container p{
+    flex-shrink: 0;
+}
+
+.box:hover{
+    animation: zoom-in-out 2s ease-in-out ;
+}
+
+@keyframes marquee-animation {
+    from{
+        translate: 0;
+    }
+    to{
+        translate: -100%;
+        /* background-color: blue; */
+    }
+}
+
+
+@keyframes zoom-in-out {
+    from{
+        scale: 1;
+    }
+    to{
+        scale: 1.2;
+    }
+}
