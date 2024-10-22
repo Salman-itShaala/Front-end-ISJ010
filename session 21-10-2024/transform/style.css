@@ -82,3 +82,27 @@
         scale: 1.2;
     }
 }
+
+
+/* task give to do at home solution */
+
+.box {
+    height: 100px;
+    width: 100px;
+    background-color: aquamarine;
+    animation: bounce 4s ease-in infinite;
+}
+
+@keyframes bounce {
+    0% {
+        translate: 0 30px;
+    }
+
+    50% {
+        transform: 0;
+    }
+
+    100% {
+        translate: 0 -30px;
+    }
+}
