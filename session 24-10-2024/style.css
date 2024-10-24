@@ -1,0 +1,22 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.parent{
+    display: grid;
+    height: 100vh;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-rows: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.child1, .child2, .child3, .child4{
+    background-color: black;
+}
+
+@media (max-width: 768px){
+.child1{
+    background-color: blue;
+}
+}
