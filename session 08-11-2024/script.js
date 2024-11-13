@@ -106,3 +106,47 @@ console.log(true || false); // true
 console.log(false || true); // true
 
 console.log(true || true); // true
+
+console.log(!true); //false
+console.log(!false); // true
+
+// increment and decrement operators
+
+let num = 10;
+
+console.log(num--); // 10
+
+// ternary operator
+
+// ""
+// ''
+//  ``
+
+if (+"one") {
+  console.log("not a falsy value");
+} else {
+  console.log("is falsy value");
+}
+
+let userAge = 10;
+
+if (userAge > 18) {
+  console.log("You are over 18, can vote");
+} else if (userAge === 18) {
+  console.log("Congrats you can start voting from this year");
+} else {
+  console.log("You can not vote");
+}
+
+const day = 1;
+
+switch (day) {
+  case 1:
+    console.log("Sunday");
+    break;
+  case 2:
+    console.log("Monday");
+    break;
+  default:
+    console.log("Invalid input");
+}
