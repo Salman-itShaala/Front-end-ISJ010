@@ -1,0 +1,40 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.images-container {
+  display: flex;
+  position: relative;
+}
+
+.images-container img {
+}
+
+.child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 9999;
+  /* background-color: black; */
+  backdrop-filter: blur(10px);
+  display: none;
+  /* display: flex; */
+  /* justify-content: center;
+  align-items: center; */
+}
+
+.parent {
+  background-color: aqua;
+  height: 100vh;
+  width: 50%;
+  transform: translate(-100vw);
+  transition: all 0.5s ease-in-out;
+}
+.parent-2 {
+  transition: all 0.5s ease-in-out;
+  transform: translate(0);
+}

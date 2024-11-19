@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dom</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Dom manipulations</h1>
+    <!-- <button onclick="changeImage()">Change image</button> -->
+    <div class="images-container">
+      <img
+        onclick="showImage(0)"
+        src="https://4.img-dpreview.com/files/p/E~TS590x0~articles/3925134721/0266554465.jpeg"
+        alt="Image"
+        width="500"
+        id="my-image"
+      />
+      <img
+        onclick="showImage(1)"
+        src="https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg"
+        alt="Image2"
+        width="500"
+      />
+      <div class="child" id="box">
+        <img src="" alt="" id="my-img2" width="500" height="300" />
+        <button onclick=" closeBox()">Close</button>
+      </div>
+    </div>
+    <button onclick="changeClass()">Click me</button>
+
+    <div class="parent" id="parent-id"></div>
+    <script src="script.js"></script>
+  </body>
+</html>

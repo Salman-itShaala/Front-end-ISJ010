@@ -18,6 +18,7 @@ function hideShow() {
     ? (selectedH1.style.display = "none")
     : (selectedH1.style.display = "block");
 
+    
   // optional logic
   //   if (selectedH1.style.display == "block") {
   //     selectedH1.style.display = "none";
