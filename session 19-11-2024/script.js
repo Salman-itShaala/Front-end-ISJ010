@@ -1,9 +1,10 @@
-// <li>Kabaddi</li>
-
-// selectec input box
 const inputBox = document.getElementById("my-imput");
 const parentOl = document.getElementById("my-ol");
 let todos = 0;
+
+// products = []
+// let todos = ["sdigslidfj", "asdasfd", "sdfsfsdff"] => ["asdasfd", "sdfsfsdff"]
+//
 
 function addLi() {
   const newLi = document.createElement("li");
@@ -15,7 +16,7 @@ function addLi() {
   newLi.id = todos;
 
   newLi.innerHTML = `${inputBox.value}
-                    <button onclick="removeTodo(${todos})">Delete me!${todos}</button>`;
+                    <button class="delete-btn" onclick="removeTodo(${todos})">Delete me!</button>`;
 
   todos++;
 
@@ -28,5 +29,3 @@ function removeTodo(todo) {
   const liToRemove = document.getElementById(todo);
   parentOl.removeChild(liToRemove);
 }
-
-removeTodo();

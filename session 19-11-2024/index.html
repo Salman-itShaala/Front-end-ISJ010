@@ -5,13 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DOM</title>
     <link rel="stylesheet" href="style.css" />
+    <style>
+      .delete-btn {
+        background-color: red;
+      }
+    </style>
   </head>
   <body>
     <h1>Todo Application</h1>
     <input type="text" placeholder="Enter Todo" id="my-imput" />
     <button onclick="addLi()">ADD TODO</button>
 
-    <ol id="my-ol"></ol>
+    <ol id="my-ol">
+      <li></li>
+    </ol>
     <script src="script.js"></script>
   </body>
 </html>
