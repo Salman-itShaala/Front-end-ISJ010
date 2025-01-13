@@ -12,7 +12,7 @@ const Header = () => {
       </div>
       <div className="navbar flex">
         <div className="main-logo flex gap">
-          <a href="#">
+          <a href="/">
             <h2>SHOP.CO</h2>
           </a>
         </div>
