@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./newariivals.css";
 import { Link } from "react-router-dom";
+import ProductCard from "../product-card/ProductCard";
 
 const NewArrivals = () => {
   const [products, setProducts] = useState([]);
@@ -29,21 +30,13 @@ const NewArrivals = () => {
       <div className="card-item flex center wrap">
         {products.map((product) => {
           return (
-            <Link
-              // to do --> improve styling and rating
-              // style={{ display: "flex", flexDirection: "column" }}
-              key={product.id}
-              to={`product-page/${product.id}`}
-            >
-              <img src={product.thumbnail} alt={product.title} />
-              <div
-                className="rating"
-                style={{ "--rating": `${product.rating}` }}
-                aria-label={`Rating: ${product.rating} out of 5`}
-              ></div>
-              <p>{product.title}</p>
-              <p>Price : {product.price} $</p>
-            </Link>
+            <ProductCard
+              rating={product.rating}
+              id={product.id}
+              price={product.price}
+              title={product.title}
+              imageUrl={product.thumbnail}
+            />
           );
         })}
       </div>

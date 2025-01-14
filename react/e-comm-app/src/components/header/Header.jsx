@@ -1,7 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./header.css";
 
 const Header = () => {
+  const [search, setSearch] = useState("");
+  const [searchedProducts, setSearchedProducts] = useState([]);
+
+  const sendReq = async () => {
+    if (!search) return;
+    try {
+      const res = await fetch(
+        `https://dummyjson.com/products/search?q=${search}`
+      );
+
+      const data = await res.json();
+      setSearchedProducts(data.products);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    sendReq();
+  }, [search]);
+
   return (
     <header>
       <div className="sign-up">
@@ -31,7 +52,15 @@ const Header = () => {
           </li>
         </ul>
         <div className="search-bar">
-          <input type="text" placeholder="Search for product" />
+          <input
+            type="text"
+            placeholder="Search for product"
+            onChange={(e) => setSearch(e.target.value)}
+            value={search}
+          />
+          {searchedProducts.map((product) => {
+            return <li key={product.id}>{product.title}</li>;
+          })}
           <a href="#">
             <img src="assets/search.svg" alt="" />
           </a>
