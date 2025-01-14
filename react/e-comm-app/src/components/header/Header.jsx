@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./header.css";
+import { Link } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ cartItems, setCartItems }) => {
   const [search, setSearch] = useState("");
   const [searchedProducts, setSearchedProducts] = useState([]);
 
   const sendReq = async () => {
-    if (!search) return;
     try {
       const res = await fetch(
         `https://dummyjson.com/products/search?q=${search}`
@@ -20,7 +20,11 @@ const Header = () => {
   };
 
   useEffect(() => {
-    sendReq();
+    if (search) {
+      sendReq();
+    } else {
+      setSearchedProducts([]);
+    }
   }, [search]);
 
   return (
@@ -52,21 +56,32 @@ const Header = () => {
           </li>
         </ul>
         <div className="search-bar">
-          <input
-            type="text"
-            placeholder="Search for product"
-            onChange={(e) => setSearch(e.target.value)}
-            value={search}
-          />
-          {searchedProducts.map((product) => {
-            return <li key={product.id}>{product.title}</li>;
-          })}
+          <div className="" style={{ position: "relative" }}>
+            <input
+              type="text"
+              placeholder="Search for product"
+              onChange={(e) => setSearch(e.target.value)}
+              value={search}
+            />
+            {searchedProducts.map((product) => {
+              return (
+                <Link
+                  style={{ display: "block" }}
+                  to={`./product-page/${product.id}`}
+                  key={product.id}
+                >
+                  {product.title}
+                </Link>
+              );
+            })}
+          </div>
           <a href="#">
             <img src="assets/search.svg" alt="" />
           </a>
         </div>
         <div className="hugs">
           <a href="cart/cart.html">
+            {cartItems.length}
             <img
               src="	https://ajay-lokhande455.github.io/e-commerce/assets/cart.svg"
               alt=""

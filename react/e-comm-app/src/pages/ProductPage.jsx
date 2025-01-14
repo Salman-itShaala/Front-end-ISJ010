@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-const ProductPage = () => {
+const ProductPage = ({ cartItems, setCartItems }) => {
   const { productId } = useParams();
 
   const [product, setProduct] = useState(null);
@@ -19,6 +19,14 @@ const ProductPage = () => {
     getProductById();
   }, []);
 
+  function addItemToCart() {
+    const newArray = [...cartItems, productId];
+    setCartItems(newArray);
+
+    //saving same data in locastorage
+    localStorage.setItem("cartItem", JSON.stringify(newArray));
+  }
+
   return (
     <div style={{ marginTop: "18vh" }}>
       {product && (
@@ -30,6 +38,7 @@ const ProductPage = () => {
               <p>Price : {product.price}$</p>
               <p>Description: {product.description}</p>
               <p>Rating : {product.rating}</p>
+              <button onClick={() => addItemToCart()}>Add To Cart</button>
             </div>
           </div>
         </div>
