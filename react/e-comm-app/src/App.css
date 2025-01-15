@@ -53,3 +53,23 @@ h2 {
 .gap {
   gap: 20px;
 }
+
+.cart-page {
+  margin-top: 20vh;
+}
+
+.cart-page ol {
+  display: flex;
+  flex-direction: column;
+  gap: 4vh;
+}
+
+.cart-page ol li {
+  display: flex;
+  gap: 4vw;
+}
+
+.cart-page ol li img {
+  width: 200px;
+  height: auto;
+}

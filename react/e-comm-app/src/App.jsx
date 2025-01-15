@@ -4,6 +4,7 @@ import Header from "./components/header/Header";
 import "./App.css";
 import ProductPage from "./pages/ProductPage";
 import { useState } from "react";
+import CartPage from "./pages/CartPage";
 
 const App = () => {
   const intialState = JSON.parse(localStorage.getItem("cartItem")) || [];
@@ -19,6 +20,12 @@ const App = () => {
             path="product-page/:productId"
             element={
               <ProductPage cartItems={cartItems} setCartItems={setCartItems} />
+            }
+          />
+          <Route
+            path="cart-page"
+            element={
+              <CartPage cartItems={cartItems} setCartItems={setCartItems} />
             }
           />
         </Routes>

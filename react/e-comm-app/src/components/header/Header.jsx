@@ -80,13 +80,13 @@ const Header = ({ cartItems, setCartItems }) => {
           </a>
         </div>
         <div className="hugs">
-          <a href="cart/cart.html">
+          <Link to="cart-page">
             {cartItems.length}
             <img
               src="	https://ajay-lokhande455.github.io/e-commerce/assets/cart.svg"
               alt=""
             />
-          </a>
+          </Link>
           <a href="#">
             <img
               src="https://ajay-lokhande455.github.io/e-commerce/assets/account.svg"
