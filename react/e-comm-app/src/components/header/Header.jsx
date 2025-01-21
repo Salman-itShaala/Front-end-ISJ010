@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./header.css";
 import { Link } from "react-router-dom";
+import { CartContext } from "../../App";
 
-const Header = ({ cartItems, setCartItems }) => {
+const Header = () => {
   const [search, setSearch] = useState("");
   const [searchedProducts, setSearchedProducts] = useState([]);
+
+  const [cartItems, setCartItems] = useContext(CartContext);
 
   const sendReq = async () => {
     try {

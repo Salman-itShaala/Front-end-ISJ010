@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { CartContext } from "../App";
 
-const ProductPage = ({ cartItems, setCartItems }) => {
+const ProductPage = () => {
   const { productId } = useParams();
 
   const [product, setProduct] = useState(null);
+
+  const [cartItems, setCartItems] = useContext(CartContext);
 
   // on mount --> call this api and log the data --> https://dummyjson.com/products/productId
 
@@ -20,7 +23,6 @@ const ProductPage = ({ cartItems, setCartItems }) => {
   }, []);
 
   function addItemToCart() {
-    console.log(product);
     const data = {
       id: product.id,
       price: product.price,
@@ -29,6 +31,7 @@ const ProductPage = ({ cartItems, setCartItems }) => {
       imageUrl: product.thumbnail,
     };
     const newArray = [...cartItems, data];
+
     setCartItems(newArray);
 
     //saving same data in locastorage
@@ -39,7 +42,10 @@ const ProductPage = ({ cartItems, setCartItems }) => {
     <div style={{ marginTop: "18vh" }}>
       {product && (
         <div className="product-info">
-          <div className="product-image-title" style={{ display: "flex" }}>
+          <div
+            className="product-image-title"
+            style={{ display: "flex", gap: "20px", backgroundColor: "red" }}
+          >
             <img src={product.thumbnail} alt={product.title} />
             <div className="">
               <h1>{product.title}</h1>

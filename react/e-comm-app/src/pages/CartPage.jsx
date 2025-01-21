@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import { CartContext } from "../App";
 
-const CartPage = ({ cartItems, setCartItems }) => {
-  console.log(cartItems);
+const CartPage = () => {
+  const [cartItems, setCartItems] = useContext(CartContext);
 
   return (
     <div className="cart-page">

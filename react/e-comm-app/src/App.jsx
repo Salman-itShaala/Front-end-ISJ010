@@ -3,8 +3,12 @@ import Home from "./pages/Home";
 import Header from "./components/header/Header";
 import "./App.css";
 import ProductPage from "./pages/ProductPage";
-import { useState } from "react";
+import { createContext, useState } from "react";
 import CartPage from "./pages/CartPage";
+
+// create it's context
+
+export const CartContext = createContext();
 
 const App = () => {
   const intialState = JSON.parse(localStorage.getItem("cartItem")) || [];
@@ -13,22 +17,14 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
-        <Header cartItems={cartItems} setCartItems={setCartItems} />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route
-            path="product-page/:productId"
-            element={
-              <ProductPage cartItems={cartItems} setCartItems={setCartItems} />
-            }
-          />
-          <Route
-            path="cart-page"
-            element={
-              <CartPage cartItems={cartItems} setCartItems={setCartItems} />
-            }
-          />
-        </Routes>
+        <CartContext.Provider value={[cartItems, setCartItems]}>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="product-page/:productId" element={<ProductPage />} />
+            <Route path="cart-page" element={<CartPage />} />
+          </Routes>
+        </CartContext.Provider>
       </BrowserRouter>
     </>
   );
