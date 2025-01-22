@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { TextField } from "@mui/material";
-import SendIcon from "@mui/icons-material/Send";
+import Fab from "@mui/material/Fab";
+import AddIcon from "@mui/icons-material/Add";
 import Button from "@mui/material/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { addTodo } from "../slices/todoSlice";
@@ -11,18 +12,23 @@ const AddTodo = () => {
   const dispatch = useDispatch();
 
   const handleButtonClick = () => {
-    console.log(todoInput);
-
+    if (!todoInput) {
+      alert("Invalid input");
+      return;
+    }
     const todoObj = {
       title: todoInput,
       id: Date.now(),
+      isComplete: false,
     };
 
     dispatch(addTodo(todoObj));
+
+    setTodoInput("");
   };
 
   return (
-    <div className="flex justify-center items-center gap-2 ">
+    <div className="flex justify-center items-center gap-4 ">
       <TextField
         id="outlined"
         label="Add to do here"
@@ -31,10 +37,9 @@ const AddTodo = () => {
         onChange={(e) => setTodoInput(e.target.value)}
         value={todoInput}
       />
-
-      <Button variant="contained" onClick={() => handleButtonClick()}>
-        Add To do
-      </Button>
+      <Fab color="primary" aria-label="add" onClick={() => handleButtonClick()}>
+        <AddIcon />
+      </Fab>
     </div>
   );
 };
