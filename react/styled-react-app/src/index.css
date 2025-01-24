@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+  /* 
+@layer components {
+  .container {
+    @apply bg-slate-950 text-neutral-100 h-screen w-full flex justify-between items-center p-8 gap-8 flex-col sm:flex-row;
+  }
+  .btn-primary {
+    @apply py-2 px-5 bg-violet-500 text-white font-semibold rounded-full shadow-md hover:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-400 focus:ring-opacity-75;
+  }
+} */
